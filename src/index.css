@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 28 33% 95%;
+    --foreground: 0 0% 10%;
+
+    --card: 30 30% 93%;
+    --card-foreground: 0 0% 10%;
+
+    --popover: 28 33% 95%;
+    --popover-foreground: 0 0% 10%;
+
+    --primary: 0 56% 28%;
+    --primary-foreground: 30 30% 95%;
+
+    --secondary: 15 28% 22%;
+    --secondary-foreground: 30 30% 95%;
+
+    --muted: 30 20% 88%;
+    --muted-foreground: 15 10% 40%;
+
+    --accent: 38 45% 57%;
+    --accent-foreground: 0 0% 10%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 30 20% 82%;
+    --input: 30 20% 82%;
+    --ring: 0 56% 28%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* Custom tokens */
+    --wine: 0 56% 28%;
+    --wine-foreground: 30 30% 95%;
+    --wood: 15 28% 22%;
+    --wood-foreground: 30 30% 95%;
+    --cream: 28 33% 95%;
+    --gold: 38 45% 57%;
+    --gold-bright: 38 55% 65%;
+    --dark: 0 0% 10%;
+    --dark-overlay: 0 0% 5%;
+
+    --font-display: 'Playfair Display', Georgia, serif;
+    --font-body: 'DM Sans', system-ui, sans-serif;
+
+    --gradient-hero: linear-gradient(180deg, hsla(0,0%,5%,0.7) 0%, hsla(0,0%,5%,0.4) 100%);
+    --gradient-wine: linear-gradient(135deg, hsl(0,56%,28%) 0%, hsl(15,28%,22%) 100%);
+    --gradient-gold: linear-gradient(135deg, hsl(38,45%,57%) 0%, hsl(38,55%,65%) 100%);
+    --shadow-card: 0 4px 20px -4px hsla(0,0%,0%,0.12);
+    --shadow-elevated: 0 12px 40px -8px hsla(0,0%,0%,0.2);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+  }
+}
+
+@layer components {
+  .section-padding {
+    @apply px-4 sm:px-6 lg:px-8 py-16 md:py-24;
+  }
+
+  .container-narrow {
+    @apply max-w-6xl mx-auto;
+  }
+
+  .text-gradient-gold {
+    background: var(--gradient-gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .ornament {
+    @apply inline-block text-accent text-2xl tracking-widest;
+    font-family: var(--font-display);
+  }
+
+  .hover-lift {
+    @apply transition-all duration-300;
+  }
+  .hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-elevated);
+  }
+}
+
+@layer utilities {
+  .animate-fade-up {
+    animation: fadeUp 0.6s ease-out both;
+  }
+
+  .animate-fade-up-delay-1 {
+    animation: fadeUp 0.6s ease-out 0.15s both;
+  }
+
+  .animate-fade-up-delay-2 {
+    animation: fadeUp 0.6s ease-out 0.3s both;
+  }
+
+  .animate-fade-up-delay-3 {
+    animation: fadeUp 0.6s ease-out 0.45s both;
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
